@@ -1,0 +1,21 @@
+header, footer{
+  background-color: #3F51B5;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 0;
+}
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+.content{
+  margin-top: 130px;
+  margin-left: 4px;
+  
+}
+.btn-lg{
+  background-color: #FF80AB;
+  color: #ffffff;
+  opacity: 54%;
+}
