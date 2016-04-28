@@ -22,3 +22,6 @@ twbs:bootstrap
 angular-meteor-auth@1.0.0
 angular-templates
 pbastowski:angular-babel
+sanjo:jasmine
+velocity:html-reporter
+velocity:console-reporter

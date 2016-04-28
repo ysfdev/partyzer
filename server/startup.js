@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-//import { Guests } from '../collections/guests';
+import { Guests } from '../imports/api/guests';
 
 Meteor.startup(() =>  {
     if (Guests.find().count() === 0 ){
@@ -8,21 +8,21 @@ Meteor.startup(() =>  {
                 'name': 'Yeramin',
                 'allowedGuests': 3,
                 'contact': '543-345-2342',
-                'confirmationStatus': 'not confirmed',
+                'isConfirmed': false,
                 'table': 4
               },
               {
                 'name': 'Mark',
                 'allowedGuests': 3,
                 'contact': '543-345-2342',
-                'confirmationStatus': 'not confirmed',
+                'isConfirmed': false,
                 'table': 4
               },
               {
                 'name': 'Michael',
                 'allowedGuests': 2,
                 'contact': '543-345-2342',
-                'confirmationStatus': 'not confirmed',
+                'isConfirmed': false,
                 'table': 8
               }
     ];

@@ -1,8 +1,9 @@
-<add-guest></add-guest>
+<guest-add></guest-add>
 <h1>Guests List</h1>
 <ul>
   <li ng-repeat="guest in guestsList.guests">
     {{guest.name}}
     <p>{{guest.contact}}</p>
+    <guest-remove guest=guest></guest-remove>
   </li>
 </ul>

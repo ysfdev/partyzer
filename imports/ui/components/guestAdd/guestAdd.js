@@ -1,13 +1,10 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import './addGuest.html';
-//import { Guests } from '../../../api/guests';
-import { Guests } from '../../../../../collections/guests';
+import './guestAdd.html';
+import { Guests } from '../../../api/guests';
 
-
-
-class AddGuest {
+class GuestAdd {
   constructor(){
     this.guest = {};
   }
@@ -23,13 +20,13 @@ class AddGuest {
   }
 }
 
-const name = 'addGuest';
+const name = 'guestAdd';
 
 // create a module
 export default angular.module(name, [
   angularMeteor,
 ]).component(name, {
-  templateUrl: `client/imports/ui/components/${name}/${name}.html`,
+  templateUrl: `imports/ui/components/${name}/${name}.html`,
   controllerAs: name,
-  controller: AddGuest
+  controller: GuestAdd
 });
