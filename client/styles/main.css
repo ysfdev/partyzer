@@ -12,10 +12,22 @@ html, body{
 .content{
   margin-top: 130px;
   margin-left: 4px;
-  
+  margin-bottom: 50px;
+
 }
-.btn-lg{
-  background-color: #FF80AB;
+.nav-btn{
+  background-color:  #ff4081;
   color: #ffffff;
   opacity: 54%;
+}
+.sec-btn{
+  background-color:#FF80AB ;
+  color: #ffffff;
+  opacity: 90%;
+  position: relative;
+}
+
+.panel-heading{
+  background-color: #5c6bc0 !important;
+  color: white !important;
 }

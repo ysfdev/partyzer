@@ -1,9 +1,41 @@
-<guest-add></guest-add>
-<h1>Guests List</h1>
-<ul>
-  <li ng-repeat="guest in guestsList.guests">
-    {{guest.name}}
-    <p>{{guest.contact}}</p>
-    <guest-remove guest=guest></guest-remove>
-  </li>
-</ul>
+<div class="panel panel-default">
+    <div class="panel-heading text-center"><h1>GUESTS LIST</h1></div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact Phone</th>
+              <th>Allowed Guests</th>
+              <th>Reserved Table #</th>
+              <th>Confirmed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ui-sref="guestDetails({ guestId: guest._id })" ng-repeat='guest in guestsList.guests'>
+              <td> {{guest.name}} </td>
+              <td>{{guest.contact}}</td>
+              <td>{{guest.allowedGuests}}</td>
+              <td>{{guest.table}}</td>
+              <td>{{guest.isConfirmed}}</td>
+              <td><guest-remove guest=guest></guest-remove></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> <!-- end panel body -->
+</div> <!-- end panel -->
+
+<!-- Add new Guest -->
+<a class="btn-lg btn-default sec-btn" data-toggle="collapse"
+data-target="#guest-add"> Add Guest</a>
+
+<div id="guest-add" class="collapse">
+  <div class="panel panel-default">
+      <div class="panel-heading text-center"><h3>Add New Guest</h3></div>
+      <div class="panel-body">
+        <guest-add></guest-add>
+      </div>
+  </div>
+</div>
