@@ -8,8 +8,12 @@
       <input placeholder="Select guests number" type="number" ng-model="guestAdd.guest.allowedGuests" />
   </div>
   <div class="form-group">
+      <label class="label-control">Guest Table: </label>
+      <input type="number"  class="form-control" ng-model="guestAdd.guest.table" />
+  </div>
+  <div class="form-group">
       <label class="label-control">Contact Number: </label>
       <input type="text"  class="form-control" ng-model="guestAdd.guest.contact" />
   </div>
-  <button class="btn btn-default secondary-btn" ng-click="guestAdd.submit()">Add Guest </button>
+  <button class="btn btn-default sec-btn" ng-click="guestAdd.submit()">Add Guest </button>
 </form>

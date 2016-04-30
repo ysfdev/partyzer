@@ -15,8 +15,6 @@ standard-minifier-css   # CSS minifier run for production mode
 standard-minifier-js    # JS minifier run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 
-autopublish             # Publish all data to the clients (for prototyping)
-insecure                # Allow all DB writes from clients (for prototyping)
 angularui:angular-ui-router
 twbs:bootstrap
 angular-meteor-auth@1.0.0
@@ -25,3 +23,7 @@ pbastowski:angular-babel
 sanjo:jasmine
 velocity:html-reporter
 velocity:console-reporter
+accounts-password
+dotansimha:accounts-ui-angular
+accounts-facebook
+accounts-twitter

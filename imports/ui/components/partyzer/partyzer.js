@@ -17,13 +17,15 @@ export default angular.module(name, [
   uiRouter,
   GuestsList,
   GuestDetails,
-  Navigation
+  Navigation,
+  'accounts.ui'
 ]).component(name, {
   templateUrl: `imports/ui/components/${name}/${name}.html`,
   controllerAs: name,
   controller: Partyzer
 })
-  .config(config);
+  .config(config)
+  .run(run);
 
 function config($locationProvider, $urlRouterProvider){
   'ngInject';
@@ -31,4 +33,16 @@ function config($locationProvider, $urlRouterProvider){
   $locationProvider.html5Mode(true);
 
   $urlRouterProvider.otherwise('/guests');
+}
+
+function run($rootScope, $state) {
+  'ngInject';
+
+  $rootScope.$on('$stateChangeError',
+    (event, toState, toParams, fromState, fromParams, error) => {
+      if (error === 'AUTH_REQUIRED') {
+        $state.go('guests');
+      }
+    }
+  );
 }

@@ -3,7 +3,7 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import './guestsList.html';
-import { Guests } from '../../../api/guests';
+import { Guests } from '../../../api/guests/index';
 import { name as GuestAdd } from '../guestAdd/guestAdd';
 import { name as GuestRemove } from '../guestRemove/guestRemove';
 
@@ -12,6 +12,9 @@ class GuestsList {
     'ngInject';
 
     $reactive(this).attach($scope);
+
+    //attach the current allow user's list to the view
+    this.subscribe('guests');
 
     this.helpers({
       guests() {

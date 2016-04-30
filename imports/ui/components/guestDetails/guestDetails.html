@@ -1,8 +1,9 @@
-<h5>Edit Information</h5>
+<a class="btn btn-default " ui-sref="guests"> Back </a>
+<h3>Edit Information For: {{guestDetails.guest.name}}</h3>
 <form>
   Name: <input type="text" ng-model=" guestDetails.guest.name" />
   Allowed Guests: <input type="text" ng-model=" guestDetails.guest.allowedGuests" />
   Contact Number: <input type="text" ng-model=" guestDetails.guest.contact" />
-  <button ng-click="guestDetails.save()"> Save </button>
+  Table: <input type="number" ng-model=" guestDetails.guest.table" />
+  <button class="btn btn-default sec-btn" ng-click="guestDetails.save()"> Save </button>
 </form>
-<button ui-sref="/guests"> Back </button >

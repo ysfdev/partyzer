@@ -1,8 +1,9 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import { Meteor } from 'meteor/meteor';
 
 import './guestAdd.html';
-import { Guests } from '../../../api/guests';
+import { Guests } from '../../../api/guests/index';
 
 class GuestAdd {
   constructor(){
@@ -10,9 +11,9 @@ class GuestAdd {
   }
 
   submit(){
+    this.guest.owner = Meteor.user()._id;
     Guests.insert(this.guest);
     this.reset();
-    console.log('new guest added');
   }
 
   reset() {

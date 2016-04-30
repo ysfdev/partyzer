@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
 import './guestRemove.html';
-import { Guests } from '../../../api/guests';
+import { Guests } from '../../../api/guests/index';
 
 class GuestRemove {
   constructor(){
