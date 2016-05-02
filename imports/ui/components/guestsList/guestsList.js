@@ -4,6 +4,7 @@ import uiRouter from 'angular-ui-router';
 
 import './guestsList.html';
 import { Guests } from '../../../api/guests/index';
+import { sendMessage } from '../../../api/nexmo/messaging';
 import { name as GuestAdd } from '../guestAdd/guestAdd';
 import { name as GuestRemove } from '../guestRemove/guestRemove';
 
@@ -13,7 +14,7 @@ class GuestsList {
 
     $reactive(this).attach($scope);
 
-    //attach the current allow user's list to the view
+    //attach the current allowed user's list to the view
     this.subscribe('guests');
 
     this.helpers({
@@ -21,6 +22,20 @@ class GuestsList {
         return Guests.find({});
       }
     });
+  }
+
+  sendInvitations(){
+    for(let guest of this.guests){
+      if(!(guest.isConfirmed)){
+        let invitation_message =
+        `Hello, ${guest.name} below is the information for the upcoming event.\n
+        Allowed Guests: ${guest.allowedGuests},\n
+        Reserved Table: ${guest.table}.\n
+        Reply with 'accept' to confirm your invitation.`;
+
+        sendMessage(guest.contact, invitation_message);
+      }
+    }
   }
 }
 

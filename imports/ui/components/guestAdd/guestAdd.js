@@ -19,6 +19,7 @@ class GuestAdd {
   reset() {
     this.guest = {};
   }
+
 }
 
 const name = 'guestAdd';
