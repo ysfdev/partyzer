@@ -1,31 +1,34 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import { Meteor } from 'meteor/meteor';
 
-import './guestRemove.html';
+import './guestAdd.html';
 import { Guests } from '../../../api/guests/index';
 
-class GuestRemove {
+class GuestAdd {
   constructor(){
     this.guest = {};
   }
 
-  remove(){
-    if (this.guest){
-      Guests.remove(this.guest._id);
-    }
+  submit(){
+    this.guest.owner = Meteor.user()._id;
+    Guests.insert(this.guest);
+    this.reset();
   }
+
+  reset() {
+    this.guest = {};
+  }
+
 }
 
-const name = 'guestRemove';
+const name = 'guestAdd';
 
 // create a module
 export default angular.module(name, [
   angularMeteor,
 ]).component(name, {
   templateUrl: `imports/ui/components/${name}/${name}.html`,
-  bindings:{
-    guest: '<'
-  },
   controllerAs: name,
-  controller: GuestRemove
+  controller: GuestAdd
 });

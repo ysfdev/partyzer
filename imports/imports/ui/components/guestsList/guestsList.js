@@ -1,7 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
-import { Meteor } from 'meteor/meteor';
 import utilsPagination from 'angular-utils-pagination';
 
 import './guestsList.html';
@@ -17,46 +16,39 @@ class GuestsList {
 
     $reactive(this).attach($scope);
     this.sentStatus = "";
-    this.totalGuests = 0;
-    //this.perPage = 3;
+    this.totalGuestsCount = 0 ;
+    this.perPage = 3;
     this.page = 1;
     this.sort = {
       name: 1
     }
+    //alert(this.totalAllowedGuests());
+    //this.totalAllowedGuests();
     //attach the current user's list allowed to the view
     this.subscribe('guests', () => [{
       limit: parseInt(this.perPage),
       skip: parseInt((this.getReactively('page') - 1) * this.perPage),
       sort: this.getReactively('sort')}
   ]);
-
+  
     this.helpers({
       guests() {
         return Guests.find({}, {
           sort : this.getReactively('sort')
         });
-      },
-
-      userIsLoggedIn(){
-        return Meteor.user();
-      },
-      
-      guestsCounter() {
-        let counter = {
-          totalAllowedGuests: 0,
-          totalGuestsInvited: 0,
-          totalGuests: 0
-        };
-        Guests.find({}).fetch().map((guest) => {
-          counter.totalAllowedGuests += guest.allowedGuests;
-          counter.totalGuestsInvited += 1;
-          counter.totalGuests = counter.totalGuestsInvited + counter.totalAllowedGuests;
-        });
-        return counter;
       }
     });
   }
 
+  totalAllowedGuests() {
+    let query = [ {$group: {_id: null, totalOfGuests: {$sum: "$allowedGuests"}}} ];
+    let result = Guests.aggregate(query);
+    this.totalGuestsCount = result;
+    alert(result);
+    return result;
+      //return Guests.find({});
+    //return Meteor.call('getTotalAllowedGuests');
+    }
 
 /*
   sendInvitations() {

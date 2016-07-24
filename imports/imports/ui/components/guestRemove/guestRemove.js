@@ -12,6 +12,8 @@ class GuestRemove {
   remove(){
     if (this.guest){
       Guests.remove(this.guest._id);
+      console.log('guest deleted added');
+
     }
   }
 }

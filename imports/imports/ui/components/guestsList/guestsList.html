@@ -1,34 +1,15 @@
 <div class="container-fluid">
-  <!-- display message if user is not logged in -->
-  <div class="col-sm-12 ng-hide text-center" ng-hide="guestsList.userIsLoggedIn">
-      <div class="panel panel-default">
-          <div class="panel-heading text-center">
-                <p>Login Required</p>
-          </div>
-          <div class="panel-body">
-            <div class="guests-info-box">
-              <h1> Please Log In with your account or Sing Up to manage party information </h1>
-
-            </div>
-          </div>
+    <div class="row">
+      <div class="col-md-12">
+      <!--
+        <button class="btn-lg btn-default sec-btn" ng-click="guestsList.sendInvitations()" >Send Invitations</button>
+        <p>{{ guestsList.tota }} </p>
+      -->
+      <!--
+      <button class="btn-lg btn-default sec-btn" ng-click="guestsList.totalAllowedGuests()" >Count</button>
+        <p> Total Guests: {{ guestsList.totalGuestsCount }} </p>
+      -->
       </div>
-  </div>
-
-    <div class="row" ng-show="guestsList.userIsLoggedIn">
-    <div class="col-sm-12 ">
-        <div class="panel panel-default">
-            <div class="panel-heading text-center">
-                  <p>Party Info</p>
-            </div>
-            <div class="panel-body">
-              <div class="guests-info-box">
-                <p><strong>Guests Invitations:</strong> {{guestsList.guestsCounter.totalGuestsInvited}}</p>
-                <p><strong>Total Guests:</strong> {{guestsList.guestsCounter.totalGuests}}</p>
-              </div>
-            </div>
-        </div>
-    </div>
-
       <div class="col-sm-12 col-md-12">
           <div class="panel panel-default">
               <div class="panel-heading text-center">
@@ -40,31 +21,25 @@
                 <guest-add></guest-add>
               </div>
           </div>
-        </div>
         <!--
         <div class="alert alert-warning" role="alert" ng-hide="guestsList.isLoggedIn">
           <strong>Warning!</strong>
           Log in to create a guest!
         </div>
       -->
-
+      </div>
       <div class="col-md-12 ">
         <div class="panel panel-default">
-            <div class="panel-heading text-center"><p>Guests List</p></div>
+            <div class="panel-heading text-center"><h2>Guests</h2></div>
             <div class="panel-body">
-              <div class="ng-hide text-center" ng-hide="guestsList.guestsCounter.totalGuests">
-                <h3 > No Guests On List</h3>
-                <p> Click <i> Add New Guest </i> to add guests</p>
-              </div>
-              <div class="table-responsive ng-show" ng-show="guestsList.guestsCounter.totalGuests">
+              <div class="table-responsive">
                 <table class="table table-hover">
                   <thead>
                     <tr>
                       <th>Name</th>
                       <th>Reserved Table #</th>
                       <th>Allowed Guests</th>
-                      <th> Delete </th>
-                      <!-- <th>CheckedIn </th> -->
+                      <th>CheckedIn </th>
                       <!--
                       <th>Contact Phone</th>
                       <th>Checked In</th>
@@ -78,12 +53,12 @@
                       <td> {{guest.name}} </td>
                       <td>{{guest.table}}</td>
                       <td>{{guest.allowedGuests}}</td>
-                      <!-- <td>{{guest.checkedIn}} False </td> -->
-                      <td><guest-remove guest=guest></guest-remove></td>
+                      <td>{{guest.checkedIn}} False </td>
                       <!--
                       <td>{{guest.contact}}</td>
                       <td>{{guest.partyId}}</td>
                       <td>{{guest.isConfirmed}}</td>
+                      <td><guest-remove guest=guest></guest-remove></td>
                      -->
                     </tr>
                   </tbody>

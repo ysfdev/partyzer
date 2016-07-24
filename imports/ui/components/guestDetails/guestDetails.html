@@ -1,9 +1,37 @@
-<a class="btn btn-default " ui-sref="guests"> Back </a>
-<h3>Edit Information For: {{guestDetails.guest.name}}</h3>
-<form>
-  Name: <input type="text" ng-model=" guestDetails.guest.name" />
-  Allowed Guests: <input type="text" ng-model=" guestDetails.guest.allowedGuests" />
-  Contact Number: <input type="text" ng-model=" guestDetails.guest.contact" />
-  Table: <input type="number" ng-model=" guestDetails.guest.table" />
-  <button class="btn btn-default sec-btn" ng-click="guestDetails.save()"> Save </button>
-</form>
+<div class="details-content">
+  <a class="btn btn-default back-btn" ui-sref="guests"> Go Back </a>
+
+  <div class="well text-center">
+    <h3>Edit Information For: {{guestDetails.guest.name}}</h3>
+  <form class="form">
+    <div class="form-group">
+      <div class="col-xs-12 ">
+        <label> Name: </label>
+        <input class="form-input" type="text" ng-model=" guestDetails.guest.name" />
+      </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-12 ">
+          <label>Allowed Guests:</label>
+          <input type="text" class="form-input" ng-model=" guestDetails.guest.allowedGuests" />
+        </div>
+    </div>
+    <!-- <div class="form-group">
+      <div class="col-xs-12 col-sm-12 col-md-6">
+        <label>Contact Number:</label>
+        <input type="text" class="form-input" ng-model=" guestDetails.guest.contact" />
+      </div>
+    </div> -->
+    <div class="form-group">
+      <div class="col-xs-12 ">
+        <label>Table:</label>
+        <input class="form-input" type="number" ng-model=" guestDetails.guest.table" />
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <button class="form-btn" ng-click="guestDetails.save()"> Save </button>
+    </div>
+    <h4 class="text-success"> {{guestDetails.status}} </h4>
+  </form>
+  </div>
+</div>
