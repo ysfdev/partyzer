@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Guests } from './collection';
 
 if (Meteor.isServer) {
-  Meteor.publish('guests', function(options) {
+  Meteor.publish('guests', function(options, searchString) {
     const selector = {
       $or: [{
         // the public guests
@@ -24,6 +24,13 @@ if (Meteor.isServer) {
         }]
       }]
     };
+
+    if (typeof searchString === 'string' && searchString.length) {
+        selector.name = {
+            $regex: `.*${searchString}.*`,
+            $options : 'i'
+        }
+    }
 
     return Guests.find(selector, options);
 

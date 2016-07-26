@@ -17,17 +17,16 @@ class GuestsList {
 
     $reactive(this).attach($scope);
     this.sentStatus = "";
-    this.totalGuests = 0;
-    //this.perPage = 3;
+    this.searchText = "";
+    this.perPage = 0;
     this.page = 1;
-    this.sort = {
-      name: 1
-    }
+    this.sort = { name: 1 };
     //attach the current user's list allowed to the view
     this.subscribe('guests', () => [{
       limit: parseInt(this.perPage),
       skip: parseInt((this.getReactively('page') - 1) * this.perPage),
-      sort: this.getReactively('sort')}
+      sort: this.getReactively('sort')
+    }, this.getReactively('searchText')
   ]);
 
     this.helpers({
@@ -40,7 +39,7 @@ class GuestsList {
       userIsLoggedIn(){
         return Meteor.user();
       },
-      
+
       guestsCounter() {
         let counter = {
           totalAllowedGuests: 0,

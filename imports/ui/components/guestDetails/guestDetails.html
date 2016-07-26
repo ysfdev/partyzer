@@ -31,7 +31,11 @@
     <div class="col-sm-12">
       <button class="form-btn" ng-click="guestDetails.save()"> Save </button>
     </div>
+    <br>
     <h4 class="text-success"> {{guestDetails.status}} </h4>
   </form>
+  </div>
+  <div class="alert alert-danger text-center">
+      <strong>Delete Guest:</strong> <guest-remove guest=guestDetails.guest></guest-remove>
   </div>
 </div>

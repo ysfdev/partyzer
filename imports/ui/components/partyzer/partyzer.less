@@ -14,13 +14,14 @@ partyzer{
     font-size: 1.5em;
   }
   button{
+    margin: 0 auto;
     background-color: #68EFAD;
     background: linear-gradient(top, #68EFAD, #691A99);
     background: -webkit-linear-gradient(top, #68EFAD, #691A99);
     background: -moz-linear-gradient(top, #68EFAD, #691A99);
     border: 2px solid #691A97;
     border-radius: 3px;
-    width: 250px;
+    max-width: 250px;
     padding: 20px;
     color: #FFF;
     box-shadow: inset 0 1px 0 0 #9fd574;
@@ -31,6 +32,10 @@ partyzer{
     opacity: .85;
     cursor: pointer;
   }
+  button:disabled{
+       background: #dddddd;
+
+  }
   .form-group{
     padding: 5px;
     margin-top: 3px;
@@ -39,10 +44,10 @@ partyzer{
     margin: 0 auto;
   }
   .form-input{
-    max-height: 20px !important;
-    padding: 20px !important;
+    height: 50px;
     border-radius: 3px;
     color: black;
+
   }
 
   .form-input:focus{
@@ -61,13 +66,16 @@ partyzer{
   }
 
   .fa-trash{
-    height: 30px;
+    font-size: 30px;
+  }
+  .fa-trash:hover{
+      cursor: pointer;
   }
 
   .details-content{
     margin: 0 auto;
-    padding-top: 64px;
-    margin-bottom: 12em;
+    padding-top: 30px;
+    margin-bottom: 3em;
   }
   .back-btn{
     background-color: #68EFAD;

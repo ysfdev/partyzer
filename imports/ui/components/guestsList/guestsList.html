@@ -56,14 +56,17 @@
                 <h3 > No Guests On List</h3>
                 <p> Click <i> Add New Guest </i> to add guests</p>
               </div>
-              <div class="table-responsive ng-show" ng-show="guestsList.guestsCounter.totalGuests">
-                <table class="table table-hover">
+
+              <div class="ng-show" ng-show="guestsList.guestsCounter.totalGuests">
+              <input type="search" ng-model="guestsList.searchText" placeholder="Search Guest" />
+              <div class="table-responsive">
+                <table class="table table-hover scroll">
                   <thead>
                     <tr>
                       <th>Name</th>
-                      <th>Reserved Table #</th>
-                      <th>Allowed Guests</th>
-                      <th> Delete </th>
+                      <th>Table #</th>
+                      <th>Guests</th>
+                      <!-- <th> Delete </th> -->
                       <!-- <th>CheckedIn </th> -->
                       <!--
                       <th>Contact Phone</th>
@@ -79,7 +82,6 @@
                       <td>{{guest.table}}</td>
                       <td>{{guest.allowedGuests}}</td>
                       <!-- <td>{{guest.checkedIn}} False </td> -->
-                      <td><guest-remove guest=guest></guest-remove></td>
                       <!--
                       <td>{{guest.contact}}</td>
                       <td>{{guest.partyId}}</td>
@@ -89,6 +91,7 @@
                   </tbody>
                 </table>
               </div>
+          </div> <!-- ng-show wrapper -->
             </div> <!-- end panel body -->
         </div> <!-- end panel -->
     </div>

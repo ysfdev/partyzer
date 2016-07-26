@@ -6,14 +6,25 @@ import './guestAdd.html';
 import { Guests } from '../../../api/guests/index';
 
 class GuestAdd {
-  constructor(){
+  constructor() {
     this.guest = {};
   }
 
-  submit(){
+  submit() {
     this.guest.owner = Meteor.user()._id;
-    Guests.insert(this.guest);
-    this.reset();
+    if(this.areValidInputs()) {
+        Guests.insert(this.guest);
+        this.reset();
+    }
+  }
+
+  areValidInputs() {
+     this.formatInputs();
+     return (this.guest.name && this.guest.allowedGuests && this.guest.table) !== undefined
+  }
+
+  formatInputs() {
+      this.guest.name = this.guest.name[0].toUpperCase() + this.guest.name.substring(1);
   }
 
   reset() {

@@ -1,20 +1,21 @@
-<form class="form text-center" role="form">
+<form class="form text-center" name="guests-form" role="form">
+  <p class="text-warning"> *All inputs are required </p>
   <div class="form-group">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <label>Guest Name: </label>
-        <input placeholder="Enter guest name " class="form-input" type="text" ng-model="guestAdd.guest.name" required/>
+        <input placeholder="Enter guest name" name="guest-name" class="form-input" type="text" ng-model="guestAdd.guest.name" required/>
       </div>
   </div>
   <div class="form-group">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <label>Allowed Guests: </label>
-        <input placeholder="Select allowed guests" class="form-input" type="number" ng-model="guestAdd.guest.allowedGuests" required/>
+        <input placeholder="Enter allowed guests" name="guest-allowed" class="form-input" pattern="\d*" min="1" type="number" ng-model="guestAdd.guest.allowedGuests" required/>
     </div>
   </div>
     <div class="form-group">
       <div class="col-xs-12 col-sm-12 col-md-12">
         <label class="label-control">Guest Table: </label>
-        <input placeholder="Enter Guest Table" type="number"  class="form-input" ng-model="guestAdd.guest.table" required/>
+        <input placeholder="Enter Guest Table" name="guest-table" type="number" min="1" class="form-input" ng-model="guestAdd.guest.table" required/>
       </div>
   </div>
   <!-- <div class="form-group">
@@ -23,7 +24,8 @@
       <input type="text"  placeholder="Enter guest number" class="form-input" ng-model="guestAdd.guest.contact" required/>
     </div>
   </div> -->
-  <div class="col-xs-12">
-    <button class="form-btn" ng-click="guestAdd.submit()">Add Guest </button>
+  <div class="col-xs-12 ">
+    <button ng-disabled="(guestAdd.guest.name.$invalid || guestAdd.guest.allowedGuests.$invalid)"
+            class="form-btn" ng-click="guestAdd.submit()">Add Guest </button>
   </div>
 </form>
