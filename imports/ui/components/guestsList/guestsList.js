@@ -16,8 +16,8 @@ class GuestsList {
     'ngInject';
 
     $reactive(this).attach($scope);
-    this.sentStatus = "";
-    this.searchText = "";
+    this.sentStatus = '';
+    this.searchText = '';
     this.perPage = 0;
     this.page = 1;
     this.sort = { name: 1 };
@@ -46,7 +46,7 @@ class GuestsList {
           totalGuestsInvited: 0,
           totalGuests: 0
         };
-        Guests.find({}).fetch().map((guest) => {
+        Guests.find({}).map((guest) => {
           counter.totalAllowedGuests += guest.allowedGuests;
           counter.totalGuestsInvited += 1;
           counter.totalGuests = counter.totalGuestsInvited + counter.totalAllowedGuests;

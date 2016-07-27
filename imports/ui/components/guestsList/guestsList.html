@@ -52,20 +52,19 @@
         <div class="panel panel-default">
             <div class="panel-heading text-center"><p>Guests List</p></div>
             <div class="panel-body">
-              <div class="ng-hide text-center" ng-hide="guestsList.guestsCounter.totalGuests">
-                <h3 > No Guests On List</h3>
-                <p> Click <i> Add New Guest </i> to add guests</p>
-              </div>
+              <h5 class="ng-show text-center text-warning" ng-show="guestsList.guestsCounter.totalGuests === 0 && guests.searchText !== ''">
+                 No Guests Found
+               </h5>  
 
-              <div class="ng-show" ng-show="guestsList.guestsCounter.totalGuests">
+              <div class="ng-show" >
               <input type="search" ng-model="guestsList.searchText" placeholder="Search Guest" />
-              <div class="table-responsive">
+              <div class="table-responsive ">
                 <table class="table table-hover scroll">
                   <thead>
                     <tr>
                       <th>Name</th>
                       <th>Table #</th>
-                      <th>Guests</th>
+                      <th>Extra Guests</th>
                       <!-- <th> Delete </th> -->
                       <!-- <th>CheckedIn </th> -->
                       <!--
